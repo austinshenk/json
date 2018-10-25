@@ -272,7 +272,8 @@ function _Json_runHelp(decoder, value)
 		case __1_MAP:
 			var answer = decoder.__func;
 			var decoders = decoder.__decoders;
-			for (var i = 0; i < decoders.length; i++)
+			var len = decoders.length;
+			for (var i = 0; len - i; i++)
 			{
 				var result = _Json_runHelp(decoders[i], value);
 				if (!__Result_isOk(result))
@@ -314,7 +315,7 @@ function _Json_runArrayDecoder(decoder, value, toElmValue)
 {
 	var len = value.length;
 	var array = new Array(len);
-	for (var i = 0; i < len; i++)
+	for (var i = 0; len - i; i++)
 	{
 		var result = _Json_runHelp(decoder, value[i]);
 		if (!__Result_isOk(result))
@@ -392,7 +393,7 @@ function _Json_listEquality(aDecoders, bDecoders)
 	{
 		return false;
 	}
-	for (var i = 0; i < len; i++)
+	for (var i = 0; len - i; i++)
 	{
 		if (!_Json_equality(aDecoders[i], bDecoders[i]))
 		{
